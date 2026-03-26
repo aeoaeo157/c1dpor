@@ -1,0 +1,1462 @@
+@charset "utf-8";
+
+
+html {
+    /* 스크롤을 부드럽게 이동시킵니다 */
+    scroll-behavior: smooth;
+overflow-x: hidden;
+}
+
+section {
+    /* 고정된 헤더 높이만큼 섹션 시작 부분에 여백을 주어 제목이 가려지지 않게 합니다 */
+    scroll-margin-top: 80px;
+}
+
+
+header {
+    width: 100%;
+    padding: 23px 0 25px 0;
+    border-bottom: 1px solid #000;
+    overflow: hidden;
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    z-index: 1000;
+
+    background-color: transparent;
+    /* 초기 배경 투명 */
+    transition: all 0.3s;
+    /* 부드럽게 변하는 효과 */
+}
+
+
+/* index.css */
+
+.top-btn {
+    position: fixed;
+    bottom: 40px;
+    /* 하단에서 40px 띄움 */
+    right: 40px;
+    /* 오른쪽에서 40px 띄움 */
+    z-index: 9999;
+    /* 다른 요소보다 위에 보이게 설정 */
+
+    /* 초기 상태: 스크롤 전에는 숨겨두고 싶다면 아래 속성 추가 (선택사항) */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+}
+
+/* 스크롤 시 나타나게 할 클래스 (JS에서 추가 예정) */
+.top-btn.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.top-btn img {
+    width: 50px;
+    /* 버튼 크기 조절 */
+    height: 30px;
+    cursor: pointer;
+    /* 호버 효과: 살짝 떠오르는 느낌 */
+    transition: transform 0.3s;
+}
+
+.top-btn img:hover {
+    transform: translateY(-5px);
+}
+
+/* 스크롤을 내렸을 때 자바스크립트로 추가할 클래스 */
+header.on {
+    background-color: #fff;
+    /* 하얀 바탕 */
+    border-bottom: 1px solid #000;
+    /* 검은 선 등장 */
+}
+
+header nav {
+   width: 95%;      /* 화면의 95%만 차지하도록 유연하게 설정 */
+    max-width: 1720px; /* 최대 너비는 제한 */
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+header .logo img {
+    width: 70px;
+    display: block;
+}
+
+
+header .gnb ul {
+    display: flex;
+    /* 메뉴 항목들도 가로로 나열합니다 */
+
+}
+
+header .gnb ul li {
+    margin-left: 30px;
+}
+
+header .gnb ul li a {
+    font-family: 'Pretendard';
+    font-weight: 300;
+    font-size: 18px;
+}
+
+header .gnb ul li a:hover {
+    font-weight: 600;
+}
+
+main img {
+    width: 100%;
+    display: block;
+    /* 이미지 하단 미세 여백 제거 */
+    height: auto;
+    /* 비율 유지 */
+}
+
+
+
+
+@media screen and (max-width: 1776px) {
+    header nav {
+     width: 95%; /* 고정 px 대신 % 사용 */
+        margin: 0 auto;
+    }
+
+    main img {
+        width: 100%;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 990px) {
+
+    header {
+        padding: 15px 0 17px 0;
+    }
+
+    header .logo img {
+        width: 50px;
+    }
+
+    header .gnb ul li a {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 786px) {
+
+    header {
+        padding: 10px 0 12px 0;
+    }
+
+    header .logo img {
+        width: 45px;
+    }
+
+    header .gnb ul li a {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 606px) {
+
+    header {
+        padding: 7px 0 9px 0;
+    }
+
+    header .logo img {
+        width: 40px;
+    }
+
+    header .gnb ul li {
+        margin-left: 20px;
+    }
+
+    header .gnb ul li a {
+        font-size: 15px;
+    }
+}
+
+
+@media (max-width: 480px) {
+html {
+    overflow-x: hidden;
+}
+
+ header {
+    width: 100%;
+        padding: 20px 0; /* 상하 여백 축소 */
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    header nav {
+        width: 100%;     /* 부모 너비에 꽉 맞춤 */
+        flex-direction: column; /* 로고와 메뉴를 위아래로 배치 */
+        gap: 8px;        /* 로고와 메뉴 사이 간격 */
+        padding: 0 10px; /* 양옆 최소 여백 */
+        text-align: center;
+    }
+
+    header .logo img {
+        width: 60px;     /* 로고 크기를 확 줄임 */
+        margin-bottom: 5px;
+    }
+
+    header .gnb ul {
+        justify-content: center; /* 메뉴를 가운데로 모음 */
+        gap: 8px;        /* 메뉴 항목 간격 축소 */
+    }
+
+    header .gnb ul li {
+        margin-left: 0;  /* 기존에 들어간 마진 제거 */
+    }
+
+    header .gnb ul li a {
+        font-size: 16px; /* 글자 크기를 최소화 */
+        letter-spacing: -0.5px; /* 자간을 줄여 가로폭 확보 */
+        text-align: center;
+}
+main img {
+    padding-top: 70px;
+}
+}
+
+
+/* ********************** 슬로건 ********************** */
+
+.slogun {
+    width: 100%;
+    height: 160vh;
+    /* 스크롤 공간 확보 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    text-align: center;
+}
+
+.scroll-text p {
+    font-family: 'Pretendard';
+    font-weight: 600;
+    font-size: 45px;
+    line-height: 1.2;
+    margin-bottom: 30px;
+    /* 줄 사이 간격 */
+
+    /* 가로 그라데이션 설정 */
+    background: linear-gradient(to right, #b286ce 60%, #c7c7c7 40%);
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    /* 초기 상태: 어두운색 */
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: background-position 0.3s ease-out;
+}
+
+.scroll-text .en {
+    font-family: 'Pretendard';
+    font-weight: 600;
+    font-size: 35px;
+    line-height: 1.2;
+    margin-bottom: 30px;
+    /* 줄 사이 간격 */
+
+    /* 가로 그라데이션 설정 */
+    background: linear-gradient(to right, #c7c7c7 60%, #c7c7c7 40%);
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    /* 초기 상태: 어두운색 */
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: background-position 0.3s ease-out;
+}
+
+
+@media (max-width:1322px) {
+    .slogun {
+        height: 100vh;
+        text-align: center;
+    }
+
+    .scroll-text p {
+        font-size: 35px;
+    }
+
+    .scroll-text .en {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 976px) {
+    .slogun {
+        height: 80vh;
+        text-align: center;
+    }
+
+    .scroll-text p {
+        font-size: 25px;
+    }
+
+    .scroll-text .en {
+        font-size: 22px;
+    }
+}
+
+
+@media (max-width: 698px) {
+    .slogun {
+        height: 60vh;
+        text-align: center;
+    }
+
+
+    .scroll-text p {
+        margin-bottom: 20px;
+        font-size: 23px;
+    }
+
+    .scroll-text .en {
+        margin-bottom: 20px;
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 530px) {
+    .slogun {
+        height: 50vh;
+        text-align: center;
+    }
+
+    .scroll-text p {
+        margin-bottom: 15px;
+        font-size: 19px;
+    }
+
+    .scroll-text .en {
+        margin-bottom: 15px;
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 480px) {
+    .slogun {
+        height: 50vh;
+        text-align: center;
+    }
+
+    .scroll-text p {
+        margin-bottom: 13px;
+        font-size: 16px;
+    }
+
+    .scroll-text .en {
+        margin-bottom: 13px;
+        font-size: 14px;
+    }
+}
+
+
+/* ********************* 어바웃 미 *********************** */
+
+.about {
+    width: 1720px;
+    margin: 0 auto;
+
+    margin-bottom: 20px;
+}
+
+.about h2 {
+    font-family: 'Pretendard';
+    font-weight: 200;
+    font-size: 50px;
+    margin-bottom: 10px;
+    /* 제목과 내용 사이 간격 추가 */
+}
+
+.about .about-con {
+    width: 1415px;
+    margin: 0 auto;
+    padding: 70px 0;
+
+    /* 1. 가로 나열을 위해 Flexbox 활성화 */
+    display: flex;
+
+    /* 2. 가로 방향 정렬 (왼쪽 정렬 또는 사이 간격 균등) */
+    justify-content: center;
+    /* 요소들을 전체 중앙으로 모음 */
+
+    /* 3. 핵심: 세로 축 기준 중앙 맞춤 */
+    align-items: center;
+}
+
+.about .profile {
+    margin-right: 178px;
+}
+
+
+.about .about-text {
+    flex: 1;
+    /* 남은 공간을 차지하게 함 (선택 사항) */
+}
+
+
+.about .profile img {
+    height: 440px;
+    margin-bottom: 30px;
+    display: block;
+}
+
+.about .profile ul li p {
+    font-family: 'Pretendard';
+    font-weight: 400;
+    font-size: 23px;
+    line-height: 1.6;
+}
+
+.about .profile span {
+    font-weight: 500;
+    font-size: 25px;
+}
+
+.about .about-text img {
+    max-width: 100%;
+    /* 부모 너비를 넘지 않게 설정 */
+}
+
+.about .about-text .top {
+    margin-bottom: 30px;
+}
+
+
+@media (max-width: 1530px) {
+.about .profile img {
+    width: 300px;
+    height: auto;
+}
+.about .about-text img{
+  width: 75%;
+}
+}
+
+
+@media (max-width: 1226px) {
+.about .profile img {
+    width: 250px;
+    height: auto;
+}
+.about .about-text img{
+  width: 65%;
+}
+
+}
+
+@media (max-width: 1094px) {
+.about .profile {
+    margin-right: 50px;
+}
+.about .profile ul li p {
+    font-size: 20px;
+}
+.about .profile img {
+    width: 200px;
+    height: auto;
+}
+.about .about-text img{
+  width: 55%;
+}
+}
+
+/* index.css 504번 줄 부근 수정 */
+@media (max-width: 1024px) {
+    .about {
+        width: 100%;       /* 고정 1000px 대신 화면에 맞게 100% 사용 */
+        max-width: 100%;  /* 부모 요소의 max-width 1720px 영향을 받지 않도록 초기화 */
+        overflow: visible; /* 숨김 해제 */
+        padding: 0 20px;   /* 양옆 최소 여백 확보 */
+    }
+
+    .about .about-con {
+        width: 100%;       /* 부모 너비에 맞춤 */
+        flex-direction: column; /* ★핵심: 가로 배치를 세로 배치로 변경 */
+        padding: 50px 0;   /* 상하 여백 조정 */
+        justify-content: center; /* 세로 상태에서 중앙 정렬 */
+        align-items: center;     /* 자식 요소들을 가로축 중앙으로 모음 */
+    }
+
+    .about .profile {
+        margin: 0 auto 40px auto; /* ★핵심: auto 마진으로 가로 중앙 정렬 + 아래 여백 */
+        text-align: center;
+        width: 100%;      /* 부모 너비를 꽉 채워서 text-align이 먹히게 함 */
+    }
+
+    .about .profile img {
+        width: 250px;     /* 적절한 크기로 조정 */
+        height: auto;
+        margin: 0 auto;   /* 이미지 자체 중앙 정렬 */
+        display: block;   /* 마진 auto가 먹히도록 설정 */
+        margin-bottom: 20px;
+    }
+
+    .about .profile ul li p {
+        font-size: 18px;  /* 글자 크기 살짝 축소 */
+        text-align: center; /* 텍스트 중앙 정렬 */
+    }
+
+    .about .about-text {
+        width: 100%;      /* 부모 너비에 맞춤 */
+        text-align: center; /* 내부 요소 중앙 정렬 */
+    }
+    
+    .about .about-text img {
+        width: 80%;       /* 모바일/태블릿 환경에 맞게 이미지 너비 조정 */
+        margin: 0 auto;   /* 이미지 중앙 정렬 */
+        display: block;   /* 마진 auto가 먹히도록 설정 */
+    }
+}
+
+@media (max-width: 518px) {
+    .about {
+        width: 100%;       /* 고정 1000px 대신 화면에 맞게 100% 사용 */
+        max-width: 100%;  /* 부모 요소의 max-width 1720px 영향을 받지 않도록 초기화 */
+        overflow: visible; /* 숨김 해제 */
+        padding: 0 20px;   /* 양옆 최소 여백 확보 */
+    }
+
+.about h2 {
+    font-size: 40px;
+    text-align: center;
+}
+}
+
+
+
+
+/* ******************* 스킬 ************************ */
+
+.skill {
+ width: 100%;
+    max-width: 1720px;
+    margin: 0 auto;
+    display: block; 
+    overflow: hidden; /* 자식의 float 높이를 인식하게 함 */
+    clear: both; /* 이전 요소의 float 영향 차단 */
+}
+
+.skill h2 {
+    font-family: 'Pretendard';
+    font-weight: 200;
+    font-size: 50px;
+    margin-bottom: 30px;
+}
+
+/* 1. 부모 박스 설정을 Flex로 변경 */
+.skill .con {
+    width: 1520px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    /* 자식 div들을 양끝으로 배치 */
+    align-items: flex-start;
+    /* 상단 라인 맞춤 */
+}
+
+.skill .con div {
+    width: 380px;
+
+}
+
+.skill h3 {
+    text-align: center;
+    font-family: 'Pretendard';
+    font-weight: 600;
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.skill ul {
+    text-align: center;
+}
+
+.skill ul li {
+
+    font-family: 'Pretendard';
+    font-weight: 300;
+    font-size: 18px;
+
+    color: #fff;
+
+    display: inline-block;
+
+    padding: 3px 10px;
+
+    border-radius: 20px;
+    margin: 5px 0;
+}
+
+.skill .fir ul li {
+    background-color: #252231;
+
+}
+
+.skill .sec ul li {
+    background-color: #252231;
+}
+
+.skill .thir ul li {
+    color: #7c749e;
+    border: 1px solid #7c749e;
+}
+
+.skill .four h3 span {
+    color: #1ABCFE;
+}
+
+.skill .four ul li {
+    color: #858585;
+    border: 1px solid #858585;
+}
+
+@media (max-width: 1594px) {
+    .skill .con {
+        width: 80%;
+    }
+}
+
+@media (max-width: 1210px) {
+    .skill .con h3 {
+        font-size: 23px;
+    }
+}
+
+@media (max-width: 518px) {
+.skill h2{
+     font-size: 40px;
+    text-align: center;
+}
+}
+
+
+
+
+
+/* **************** 메인 꼬순내 ************** */
+
+.mp {
+width: 100%;
+    max-width: 1720px;
+    margin: 0 auto;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    display: block;
+    clear: both;
+}
+
+.mp .title p {
+    font-family: 'Pretendard';
+    font-weight: 300;
+    font-size: 18px;
+    color: #ff9c1c;
+    margin-bottom: 10px;
+}
+
+.mp .title p span {
+    color: #ff9c1c;
+    font-weight: 600;
+}
+
+.mp h2 {
+    font-family: 'Pretendard';
+    font-weight: 200;
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+
+.mp .device {
+    margin: 0 auto;
+    margin-bottom: 40px;
+}
+
+.mp .device ul li {
+    display: inline-block;
+}
+
+.mp .fir img {
+    width: 880px;
+    margin-left: 400px; /* 여기서 880 + 400 = 1280px을 이미 차지함 */
+}
+
+
+.mp .sec img {
+    width: 250px;
+    display: block;
+    padding-bottom: 20px;
+}
+
+.mp .text {
+    margin-left: 500px;
+}
+
+.mp .text .kko {
+    font-family: 'Pretendard';
+    font-weight: 600;
+    font-size: 45px;
+    color: #ff9c1c;
+}
+
+.mp .text .sub {
+    font-size: 20px;
+    color: #000;
+    font-family: 'Pretendard';
+    font-weight: 600;
+    font-size: 35px;
+}
+
+
+.mp .text h4 {
+    font-family: 'Pretendard';
+    font-weight: 600;
+    font-size: 35px;
+    margin-bottom: 20px;
+    color: #000000;
+}
+
+
+.mp .text p {
+    font-family: 'Pretendard';
+    font-weight: 500;
+    font-size: 20px;
+    margin-bottom: 30px;
+    color: #4b4b4b;
+    line-height: 28px;
+}
+
+.mp .btn {
+    margin-left: 500px;
+}
+
+.mp .btn ul {
+    display: flex;
+    /* 버튼들을 가로로 나열 */
+    gap: 15px;
+    /* 버튼 사이의 간격 */
+}
+
+.mp .btn ul li {
+    display: block;
+}
+
+.mp .btn ul li div {
+    display: inline-block;
+    border: 1px solid #000;
+    border-radius: 5px;
+}
+
+.mp .btn ul li div.web {
+    background-color: #ff9c1c;
+    color: #fff;
+    border: #ff9c1c;
+}
+
+.mp .btn ul li div a {
+    font-family: 'Pretendard';
+    font-weight: 300;
+    font-size: 18px;
+    padding: 15px 25px;
+}
+
+.mp .btn ul li .figma {
+    color: #ff9c1c;
+    border: 1px solid #ff9c1c;
+}
+
+
+.mp .btn ul li .protect {
+    color: #ff9c1c;
+    border: 1px solid #ff9c1c;
+}
+
+
+
+@media (max-width: 1658px) {
+    .mp .fir img {
+    width: 680px;
+    margin-left: 400px;
+}
+
+.mp .sec img {
+    width: 200px;
+}
+
+.mp .text {
+    margin-left: 480px;
+}
+
+.mp .text .kko {
+    font-size: 35px;
+}
+
+.mp .text .sub {
+    font-size: 25px;
+}
+
+
+.mp .text h4 {
+    font-size: 25px;
+}
+
+
+.mp .text p {
+    font-size: 18px;
+}
+
+.mp .btn {
+    margin-left: 480px;
+}
+}
+
+
+@media (max-width: 1462px) {
+    .mp .fir img {
+    width: 480px;
+    margin-left: 400px;
+}
+
+.mp .sec img {
+    width: 100px;
+}
+
+.mp .text {
+    margin-left: 480px;
+}
+
+.mp .text .kko {
+    font-size: 35px;
+}
+
+.mp .text .sub {
+    font-size: 25px;
+}
+
+
+.mp .text h4 {
+    font-size: 25px;
+}
+
+
+.mp .text p {
+    font-size: 16px;
+}
+
+.mp .btn {
+    margin-left: 480px;
+}
+}
+
+
+@media (max-width: 1374px) {
+.mp .title {
+    text-align: center;
+}
+
+.mp .title h2{
+text-align: left;
+}
+
+.mp .btn img { /* 또는 해당 이미지 클래스 */
+    display: block;    /* 글자 성격을 버리고 블록으로 변경 */
+    margin: 0 auto;    /* 좌우 마진을 자동으로 설정하여 중앙 정렬 */
+}
+
+.mp .mp-con {
+        flex-direction: column; /* 가로가 아닌 세로로 배치 */
+        align-items: center;    /* 자식 요소들을 가로 중앙으로 정렬 */
+        text-align: center;
+    }
+    
+
+.mp .device {
+    width: 100%;
+    text-align: center;
+}
+
+.mp .fir img {
+        width: 340px;
+        display: block;    /* 이미지를 블록 요소로 변경 */
+        margin: 0 auto;    /* ★ 좌우 마진을 auto로 설정하여 중앙 정렬 */
+        /* margin-left: 0px;  <-- 이 줄은 삭제하세요! */
+    }
+
+    .mp .sec img {
+        width: 80px;
+        display: block;    /* 두 번째 이미지도 중앙에 오게 하려면 추가 */
+        margin: 0 auto;
+    }
+
+.mp .text {
+        width: 100%;       /* 1. 너비를 100%로 확장하여 내부 텍스트 정렬 기반 마련 */
+        max-width: 800px;  /* 2. 가독성을 위해 최대 너비 제한 (선택 사항) */
+        margin: 0 auto !important; /* 3. !important로 기존 margin-left: 500px을 강제로 덮어씀 */
+        text-align: center; /* 4. 내부의 h4, p, span 등을 중앙으로 정렬 */
+    }  
+
+
+.mp .text .kko {
+    font-size: 20px;
+}
+
+.mp .text .sub {
+    font-size: 17px;
+}
+
+
+.mp .text h4 {
+    font-size: 17px;
+}
+
+
+.mp .text p {
+        width: 90%;        /* 5. 고정 너비 400px 대신 %를 사용하여 모바일 대응 */
+        max-width: 500px;  /* 적절한 선에서 줄바꿈되도록 설정 */
+        margin: 0 auto;    /* p 태그 자체를 중앙으로 */
+        font-size: 15px;
+        text-align: center;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+
+.mp .btn {
+   display: block;      /* block으로 바꿔야 margin auto가 먹힙니다 */
+    width: fit-content;  /* 버튼 글자 크기만큼만 너비를 잡습니다 */
+    margin: 0 auto;      /* 좌우 마진을 자동으로 설정 (중앙 정렬) */
+    text-align: center;
+}
+}
+
+
+@media (max-width: 518px) {
+.mp .title h2{
+     font-size: 40px;
+    text-align: center;
+}
+}
+
+
+/* *************** 디자인 ******************** */
+
+.design {
+    width: 100%;
+}
+
+.design .de-title h2 {
+    width: 1720px;
+    font-family: 'Pretendard';
+    font-weight: 200;
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.design .de-title .tool {
+    width: 1720px;
+    font-family: 'Pretendard';
+    font-weight: 300;
+    font-size: 18px;
+    color: #b286ce;
+    margin-bottom: 20px;
+}
+
+.design .de-title p {
+    margin-bottom: 10px;
+}
+
+.design .de-title p span {
+    color: #b286ce;
+    font-weight: 600;
+}
+
+
+.design .de-title {
+    width: 1720px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+}
+
+.design .de-title .btn1 a {
+    font-family: 'Pretendard';
+    font-weight: 300;
+    font-size: 15px;
+    padding: 15px 25px;
+    background-color: #b286ce;
+    color: #fff;
+    display: inline-block;
+    border-radius: 5px;
+       margin-bottom: 20px;
+}
+
+.design .de-title .btn1 span {
+    font-size: 20px;
+    color: #fff;
+}
+
+.design .de-title .btn2 a {
+    float: right;
+    font-family: 'Pretendard';
+    font-weight: 300;
+    font-size: 15px;
+    padding: 15px 25px;
+    background-color: #b286ce;
+    color: #fff;
+    display: inline-block;
+    border-radius: 5px;
+    margin-bottom: 40px;
+}
+
+.design .de-title .btn2 span {
+    font-size: 20px;
+    color: #fff;
+}
+
+/* 기존 .design .gallery 관련 코드를 아래와 같이 수정/추가하세요 */
+
+.design .gallery {
+    width: 100%;
+    overflow: hidden;
+    /* 화면 밖으로 나가는 이미지 숨김 */
+
+    margin-bottom: 40px;
+}
+
+.design .gallery ul {
+    display: flex;
+    /* 가로 나열 */
+    width: max-content;
+    /* 내용물 너비만큼 길게 설정 */
+    animation: marquee 110s linear infinite;
+    /* 40초 동안 무한 반복 */
+}
+
+.design .gallery ul li {
+    display: block;
+    flex-shrink: 0;
+    /* 크기가 줄어들지 않도록 설정 */
+    padding: 0 10px;
+    /* 이미지 사이 간격 */
+}
+
+.design .gallery img {
+    width: 650px;
+    /* 이미지 크기는 적절히 조절하세요 */
+    height: auto;
+    display: block;
+    border-radius: 5px;
+}
+
+
+
+
+
+.design .gallery2 {
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 40px;
+}
+
+.design .gallery2 div {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+}
+
+.design .gallery2 ul {
+    display: flex;
+    width: max-content;
+    /* 1. 속도를 gallery(90s)와 비슷하게 맞추거나 조금 더 빠르게(60s) 조절하세요 */
+    /* 현재 35s는 이미지가 지나가는 속도가 너무 빨라 끊김이 도드라져 보일 수 있습니다. */
+    animation: marquee-reverse 80s linear infinite;
+}
+
+.design .gallery2 ul li {
+    display: block;
+    flex-shrink: 0;
+    padding: 0 10px;
+}
+
+.design .gallery2 img {
+    height: 500px;
+    width: auto;
+    display: block;
+    border-radius: 5px;
+}
+
+/* 2. 기존 marquee 애니메이션 (왼쪽 -> 오른쪽 흐름 유지) */
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* 3. 새로운 반대 방향 애니메이션 정의 (오른쪽 -> 왼쪽 흐름) */
+@keyframes marquee-reverse {
+    0% {
+        /* 시작점을 -50%로 잡습니다 (이미 절반이 왼쪽으로 가 있는 상태) */
+        transform: translateX(-50%);
+    }
+
+    100% {
+        /* 끝점을 0으로 잡습니다 */
+        transform: translateX(0);
+    }
+}
+
+
+
+
+@media (max-width: 518px) {
+
+    .design .de-title {
+        width: 100% !important;
+        text-align: center;
+        margin: 0 auto 20px auto;
+    }
+.design .tool {
+        display: block !important; /* 혹시 모를 display: none 방지 */
+        width: 90% !important;
+        max-width: 440px;
+        text-align: center;
+        margin: 0 auto 20px auto !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+.design .de-title h2 {
+
+           width: 100%;
+     font-size: 40px;
+    text-align: center;
+    }
+.design .btn1 {
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.design .gallery img{
+    width: 320px;
+}
+
+/* index.css 약 440번 줄 부근 수정 */
+.design .de-title .btn2 {
+    text-align: center; /* 부모에서 자식(a태그)을 중앙으로 보냅니다 */
+    width: 100%;       /* 부모가 전체 너비를 차지하게 합니다 */
+}
+
+.design .de-title .btn2 a {
+    float: none;
+}
+
+.design .gallery2 img{
+   height: 380px;
+}
+.design .btn1, .design .btn2 {
+        width: 100%;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+
+
+
+
+    .design .de-title .btn1 a {
+    font-size: 14px;
+    padding: 15px 25px;
+}
+
+.design .de-title .btn1 span {
+    font-size: 16px;
+}
+
+.design .de-title .btn2 a {
+    font-size: 14px;
+    padding: 15px 25px;
+}
+
+.design .de-title .btn2 span {
+    font-size: 16px;
+}
+}
+
+
+
+
+
+
+
+/* ****************** 연락처 *********** */
+
+.contact {
+    width: 100%;
+    border-top: 1px solid #a3a3a3;
+    border-bottom: 1px solid #a3a3a3;
+    overflow: hidden;
+    /* 테두리 겹침 방지 */
+}
+
+.contact ul {
+    width: 100%;
+    /* 부모 너비 전체 사용 */
+    display: flex;
+    /* 가로 나열 */
+    align-items: stretch;
+    /* 자식 li들의 높이를 동일하게 맞춤 */
+}
+
+.contact ul li {
+    flex: 1;
+    /* 모든 칸의 너비를 동일하게 배분 */
+    border-right: 1px solid #a3a3a3;
+    /* 오른쪽 구분선 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* 마지막 리스트 아이템의 선은 제거 */
+.contact ul li:last-child {
+    border-right: none;
+}
+
+/* 텍스트가 들어가는 첫 번째 칸 (Let's Work Together!) */
+.contact ul li.text {
+    flex: 3;
+    /* 텍스트 칸을 아이콘 칸보다 더 넓게 설정 (조절 가능) */
+    font-family: 'Pretendard';
+    font-weight: 500;
+    font-size: 35px;
+    padding: 60px 0;
+    /* 상하 높이 조절 */
+}
+
+/* 아이콘이 들어가는 링크 칸 설정 */
+.contact ul li a {
+    display: flex;
+    /* 클릭 영역을 칸 전체로 확장 */
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 60px 0;
+    transition: background 0.3s;
+}
+
+/* 마우스를 올렸을 때 배경색 변화 (선택 사항) */
+.contact ul li a:hover {
+    background-color: #e0e0e0;
+}
+
+.contact ul li img {
+    width: 45px;
+    /* 시안에 맞춰 아이콘 크기 조절 */
+    height: auto;
+}
+
+/* @ 아이콘 같은 텍스트 링크 스타일 */
+.contact ul li a.email-text {
+    font-size: 40px;
+    color: #000;
+    text-decoration: none;
+}
+
+.contact .email a {
+    font-family: 'Pretendard';
+    font-weight: 500;
+    font-size: 55px;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* 모달 배경 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    /* 배경을 약간 더 투명하게 */
+}
+
+/* 팝업 컨테이너 (하얀 박스) */
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background-color: #fff;
+    /* 하얀색 배경 */
+    padding: 20px;
+    /* 테두리 여백 */
+    border-radius: 10px;
+    /* 모서리 곡률 */
+
+    width: 400px;
+    /* 시안처럼 작은 크기로 고정 */
+    height: auto;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* 닫기 버튼 위치 조정 */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: #333;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+
+@media (max-width: 518px) {
+
+/* 텍스트가 들어가는 첫 번째 칸 (Let's Work Together!) */
+.contact ul li.text {
+    font-size: 18px;
+    padding: 40px 0;
+}
+
+/* 아이콘이 들어가는 링크 칸 설정 */
+.contact ul li a {
+    padding: 20px 0;
+}
+.contact ul li img {
+    width: 35px;
+    /* 시안에 맞춰 아이콘 크기 조절 */
+    height: auto;
+}
+.contact .email a {
+    font-size: 45px;
+}
+}
+
+
+
+
+
+
+
+/* ************** 푸터 *************** */
+
+footer {
+    width: 100%;
+    padding: 25px 0;
+}
+
+footer div {
+    width: 1720px;
+    margin: 0 auto;
+
+    font-family: 'Pretendard';
+    font-weight: 400;
+    font-size: 18px;
+    color: #777777;
+}
+
+
+
+
+
+
+header nav,
+.about,
+.skill,
+.mp,
+.design .de-title,
+footer div {
+    width: 95%;
+    /* 화면이 작을 때 양옆 여백 확보 */
+    max-width: 1720px;
+    /* 화면이 아무리 커도 1720px까지만 */
+    margin: 0 auto;
+}
+
+/* 태블릿 이하 (1024px 미만) */
+@media screen and (max-width: 1024px) {
+    .skill .con {
+        width: 100%;
+        flex-direction: column;
+        /* 가로에서 세로로 변경 */
+        align-items: center;
+    }
+
+    .skill .con div {
+        width: 100%;
+        margin-bottom: 40px;
+    }
+
+    .about .about-con {
+        flex-direction: column;
+        /* 어바웃 섹션도 세로로 */
+    }
+
+    .about .profile {
+        margin-right: 0;
+        margin-bottom: 50px;
+    }
+}
+
+
+
+@media (max-width: 518px) {
+    footer p {
+        font-size: 16px;
+        text-align: center;
+    }
+}
+
+
+/* 1. 모든 섹션의 고정 너비 해제 */
+.about, .skill, .mp, .design .de-title, footer div {
+    width: 95% !important; /* 고정 px 대신 퍼센트 사용 */
+    max-content: 1720px;
+    margin: 0 auto;
+}
+
+/* 2. mp 섹션 이미지 강제 정렬 해제 (중요) */
+@media (max-width: 1462px) {
+    .mp .fir img {
+        margin-left: 0 !important;
+        margin: 0 auto;
+        width: 100%;
+        max-width: 600px; /* 적절한 크기로 제한 */
+    }
+}
+
+/* 3. 전체 페이지 가로 삐져나옴 방지 */
+body {
+    overflow-x: hidden; /* 최후의 수단: 화면 밖으로 나가는 건 다 숨김 */
+}
