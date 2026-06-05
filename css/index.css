@@ -682,6 +682,14 @@ width: 100%;
 }
 
 
+.mp h3 {
+   font-family: 'Pretendard';
+    font-weight: 700;
+    font-size: 34px;
+    margin-bottom: 20px;
+ color: #ff9c1c;
+}
+
 .mp .device {
     margin: 0 auto;
     margin-bottom: 40px;
@@ -743,6 +751,7 @@ width: 100%;
 
 .mp .btn {
     margin-left: 500px;
+    margin-bottom: 80px;
 }
 
 .mp .btn ul {
@@ -780,11 +789,42 @@ width: 100%;
     border: 1px solid #ff9c1c;
 }
 
+.mp .btn ul li .figma2 {
+    background-color: #ff9c1c;
+    color: #fff;
+     border: 1px solid #ff9c1c;
+}
 
 .mp .btn ul li .protect {
     color: #ff9c1c;
     border: 1px solid #ff9c1c;
 }
+
+.mp .fir2 img {
+    width: 650px;
+    margin-left: 450px; /* 여기서 880 + 400 = 1280px을 이미 차지함 */
+    margin-right: 100px;
+}
+
+
+.mp .sec2 img {
+    width: 200px;
+    display: block;
+}
+
+.mp .fir3 img {
+    width: 650px;
+    margin-left: 450px; /* 여기서 880 + 400 = 1280px을 이미 차지함 */
+    margin-right: 100px;
+}
+
+
+.mp .sec3 img {
+    width: 200px;
+    display: block;
+}
+
+
 
 
 
@@ -795,6 +835,24 @@ width: 100%;
 }
 
 .mp .sec img {
+    width: 200px;
+}
+
+.mp .fir2 img {
+    width: 680px;
+    margin-left: 400px;
+}
+
+.mp .sec2   img {
+    width: 200px;
+}
+
+.mp .fir3 img {
+    width: 680px;
+    margin-left: 400px;
+}
+
+.mp .sec3 img {
     width: 200px;
 }
 
@@ -833,6 +891,24 @@ width: 100%;
 }
 
 .mp .sec img {
+    width: 100px;
+}
+
+ .mp .fir2 img {
+    width: 480px;
+    margin-left: 400px;
+}
+
+.mp .sec2 img {
+    width: 100px;
+}
+
+.mp .fir3 img {
+    width: 480px;
+    margin-left: 400px;
+}
+
+.mp .sec3 img {
     width: 100px;
 }
 
@@ -898,6 +974,32 @@ text-align: left;
     }
 
     .mp .sec img {
+        width: 80px;
+        display: block;    /* 두 번째 이미지도 중앙에 오게 하려면 추가 */
+        margin: 0 auto;
+    }
+
+    .mp .fir2 img {
+        width: 340px;
+        display: block;    /* 이미지를 블록 요소로 변경 */
+        margin: 0 auto;    /* ★ 좌우 마진을 auto로 설정하여 중앙 정렬 */
+        /* margin-left: 0px;  <-- 이 줄은 삭제하세요! */
+    }
+
+    .mp .sec2 img {
+        width: 80px;
+        display: block;    /* 두 번째 이미지도 중앙에 오게 하려면 추가 */
+        margin: 0 auto;
+    }
+
+    .mp .fir3 img {
+        width: 340px;
+        display: block;    /* 이미지를 블록 요소로 변경 */
+        margin: 0 auto;    /* ★ 좌우 마진을 auto로 설정하여 중앙 정렬 */
+        /* margin-left: 0px;  <-- 이 줄은 삭제하세요! */
+    }
+
+    .mp .sec3 img {
         width: 80px;
         display: block;    /* 두 번째 이미지도 중앙에 오게 하려면 추가 */
         margin: 0 auto;
